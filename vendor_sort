@@ -1,0 +1,7 @@
+SELECT main.GroupID,FirstName,LastName,Job,ExternalID,CompanyName,Count(*)
+AS 'Count'
+FROM maintable_2XNQC AS main
+INNER JOIN cb_vendorinformation AS vendor
+ON vendor.GroupId = main.GroupID
+GROUP BY FirstName
+ORDER BY Count ASC, CompanyName ASC
