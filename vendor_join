@@ -1,0 +1,5 @@
+SELECT m.GroupID, c.CompanyName, COUNT(*) as Count
+FROM maintable_DFZDV AS m
+JOIN cb_vendorinformation AS c ON m.GroupID = c.GroupID
+GROUP BY m.GroupID
+ORDER BY Count, m.GroupID DESC;
