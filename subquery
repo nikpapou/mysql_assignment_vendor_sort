@@ -1,0 +1,14 @@
+SELECT c.first_name, c.last_name
+FROM customer c
+WHERE c.customer_id IN (
+    SELECT r.customer_id
+    FROM rental r
+    JOIN inventory i ON r.inventory_id = i.inventory_id
+    JOIN film f ON i.film_id = f.film_id
+    WHERE f.film_id = (
+        SELECT film_id
+        FROM film
+        ORDER BY replacement_cost DESC
+        LIMIT 1
+    )
+);
