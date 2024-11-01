@@ -1,0 +1,8 @@
+SELECT player_name, position, goals_scored,
+    CASE
+        WHEN goals_scored >= 20 THEN 'Top Scorer'
+        WHEN goals_scored >= 10 AND goals_scored < 20 THEN 'Good Scorer'
+        WHEN goals_scored >= 5 AND goals_scored < 10 THEN 'Average Scorer'
+        ELSE 'Low Scorer'
+    END AS player_category
+FROM players;
