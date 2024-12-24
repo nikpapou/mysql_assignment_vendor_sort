@@ -1,7 +1,6 @@
-SELECT main.GroupID,FirstName,LastName,Job,ExternalID,CompanyName,Count(*)
-AS 'Count'
-FROM maintable_2XNQC AS main
-INNER JOIN cb_vendorinformation AS vendor
-ON vendor.GroupId = main.GroupID
-GROUP BY FirstName
-ORDER BY Count ASC, CompanyName ASC
+SELECT a.GroupID, a.FirstName, a.LastName, a.Job, a.ExternalID, b.CompanyName, count(*) as count
+FROM maintable_T8V6R a
+join cb_vendorinformation b
+on a.GroupID = b.GroupID
+group by a.FirstName
+order by Count asc, CompanyName asc;
